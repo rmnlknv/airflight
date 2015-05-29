@@ -1,0 +1,40 @@
+﻿@model Tickets.Models.TicketsModel
+@{
+    ViewBag.Title = "Lukianov Airlines | Add Airport";
+    Layout = "Layout.cshtml";
+}
+
+
+<section id="banner">
+    <h2>Lukianov Airlines</h2>
+    <p>Time - The Most Valuable Resource in the World</p>
+    <ul class="actions">
+        <li><a href="#" class="button">Time to fly!</a></li>
+    </ul>
+</section>
+
+
+
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>Add Airport</h2>
+            <p>
+                @using (Html.BeginForm())
+                {
+                    <div>Airport city:@Html.TextBoxFor(m => m.Airport)</div>
+                    <br />
+                    <input type="submit" value="Save" />
+                }
+            </p>
+        </header>
+
+    </section>
+
+</section>
+
+
+
+

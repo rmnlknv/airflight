@@ -1,0 +1,71 @@
+﻿@model Tickets.Models.TicketsModel
+@using Tickets.Models;
+@{
+    ViewBag.Title = "Lukianov Airlines | ShowWays";
+    Layout = "Layout.cshtml";
+}
+
+<style>
+    #dads{
+        border-color: #808080;
+    }
+</style>
+
+
+<section id="banner">
+    <h2>Lukianov Airlines</h2>
+    <p>Time - The Most Valuable Resource in the World</p>
+    <ul class="actions">
+        <li><a href="#" class="button">Time to fly!</a></li>
+    </ul>
+</section>
+
+
+
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>Way to destination</h2>
+            <p>
+
+                <table id="dads">
+                    <tr>
+                        <td>Name: @String.Format(Model.FirstName + " " + Model.LastName)</td>
+                    </tr>
+                    <tr>
+                        @foreach (var item in Model.Way)
+                        {
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>From</td>
+                                        <td>To</td>
+                                        <td>Price</td>
+                                        <td>Time</td>
+                                    </tr>
+                                    @foreach (var value in item)
+                                    {
+                                        <tr>
+                                            <td>@Model.Airports[value.To]</td>
+                                            <td>@Model.Airports[@value.From]</td>
+                                            <td>@value.Price</td>
+                                            <td>@value.Time</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        }
+                    </tr>
+                </table>
+                <h3>The optimal way length:  @Model.TotalTime and costs: $@Model.TotalPrice</h3>
+
+            </p>
+        </header>
+
+    </section>
+
+</section>
+
+

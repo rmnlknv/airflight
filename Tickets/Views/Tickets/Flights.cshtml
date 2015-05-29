@@ -1,0 +1,54 @@
+﻿@model List<Tickets.Models.TicketsModel>
+@{
+    ViewBag.Title = "Lukianov Airlines | Airports";
+    Layout = "Layout.cshtml";
+}
+
+
+
+<section id="banner">
+    <h2>Lukianov Airlines</h2>
+    <p>Time - The Most Valuable Resource in the World</p>
+    <ul class="actions">
+        <li><a href="#" class="button">Time to fly!</a></li>
+    </ul>
+</section>
+
+
+
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>Flights</h2>
+            <p>
+
+                <table>
+                    <tr>
+                        <td>From</td>
+                        <td>To</td>
+                        <td>Duration</td>
+                        <td>Price</td>
+                    </tr>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        foreach (var item in Model[i].Flights)
+                        {
+                            <tr>
+                                <td>@Model[i].Airports[item.To]</td>
+                                <td>@Model[i].Airports[item.From]</td>
+                                <td>@item.Time</td>
+                                <td>$@item.Price</td>
+                            </tr>
+                        }
+                    }
+                </table>
+
+            </p>
+        </header>
+
+    </section>
+
+</section>
+

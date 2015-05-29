@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Airport</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    
+    <link href="@Url.Content("~/Content/css/main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/images/overlay.png")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/js/main.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/jquery.dropotron.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/jquery.scrollgress.min.js")" type="text/javascript"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body class="landing">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <nav id="nav">
+                <ul>
+                    <li><a href="/">Homepage</a></li>
+                    <li>
+                        <a href="#" class="icon fa-angle-down">Schedules</a>
+                        <ul>
+                            <li><a href="generic.html">List of cities with airports</a></li>
+                            <li><a href="contact.html">List of flights</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="button">Buy a ticket</a></li>
+                </ul>
+            </nav>
+        </header>
+        @RenderBody()
+        <p>&copy; 2015 RMN. All rights reserved.</p>
+</body>
+</html>

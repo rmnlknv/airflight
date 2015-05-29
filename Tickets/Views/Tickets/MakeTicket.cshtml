@@ -1,0 +1,44 @@
+﻿@model Tickets.Models.TicketsModel
+@using Tickets.Models;
+@{
+    ViewBag.Title = "Lukianov Airlines | Make Ticket";
+    Layout = "Layout.cshtml";
+}
+
+
+
+<section id="banner">
+    <h2>Lukianov Airlines</h2>
+    <p>Time - The Most Valuable Resource in the World</p>
+    <ul class="actions">
+        <li><a href="#" class="button">Time to fly!</a></li>
+    </ul>
+</section>
+
+
+
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>Ticket</h2>
+            <p>
+
+                @using (Html.BeginForm())
+                {
+                    <div>To: @Html.DropDownListFor(m => m.Location, Model.Locations)</div>
+                    <div>From: @Html.DropDownListFor(m => m.Destination, Model.Destinations)</div>
+                    <div>First name: @Html.TextBoxFor(m => m.FirstName)</div>
+                    <div>Second name: @Html.TextBoxFor(m => m.LastName)</div>
+                    <br />
+                    <input type="submit" value="Save" />
+                } 
+
+            </p>
+        </header>
+
+    </section>
+
+</section>
+

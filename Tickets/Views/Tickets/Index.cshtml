@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Main";
+    Layout = "Layout.cshtml";
+}
+
+<!-- Banner -->
+<section id="banner">
+    <h2>Lukianov Airlines</h2>
+    <p>Time - The Most Valuable Resource in the World</p>
+    <ul class="actions">
+        <li><a href="#" class="button">Time to fly!</a></li>
+    </ul>
+</section>
+
+<!-- Main -->
+<section id="main" class="container">
+
+    <section class="box special">
+        <header class="major">
+            <h2>
+               
+            </h2>
+            <p>
+                <table border="1">
+                    <tr>
+                        <td>@Html.ActionLink("Add Airport", "AddAirport")</td>
+                        <td>@Html.ActionLink("Add Flight", "AddFlight")</td>
+                        <td>@Html.ActionLink("Watch all airports", "Airports")</td>
+                        <td>@Html.ActionLink("Watch all flights", "Flights")</td>
+                        <td>@Html.ActionLink("Make ticket", "MakeTicket")</td>
+                    </tr>
+                </table>
+            </p>
+        </header>
+
+    </section>
+
+</section>
+
+
+

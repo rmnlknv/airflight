@@ -1,0 +1,9 @@
+﻿@model Tickets.Models.TicketsModel
+@using Tickets.Models;
+@{
+    ViewBag.Title = "Lukianov Airlines | TicketError";
+    Layout = "Layout.cshtml";
+}
+
+<h2>Cannot create ticket, there is no possible ways</h2>
+<div>@Html.ActionLink("Make new ticket", "MakeTicket")</div>

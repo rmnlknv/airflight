@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TicketsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Airport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Flights" Relationship="Self.FK_Flights_Airports" FromRole="Airports" ToRole="Flights" />
+    <NavigationProperty Name="Flights1" Relationship="Self.FK_Flights_Airports1" FromRole="Airports" ToRole="Flights" />
+    <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Airports" FromRole="Airports" ToRole="Tickets" />
+    <NavigationProperty Name="Tickets1" Relationship="Self.FK_Tickets_Airports1" FromRole="Airports" ToRole="Tickets" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="To" Type="Int32" Nullable="false" />
+    <Property Name="From" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Airport" Relationship="Self.FK_Flights_Airports" FromRole="Flights" ToRole="Airports" />
+    <NavigationProperty Name="Airport1" Relationship="Self.FK_Flights_Airports1" FromRole="Flights" ToRole="Airports" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="To" Type="Int32" Nullable="false" />
+    <Property Name="From" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="time" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Airport" Relationship="Self.FK_Tickets_Airports" FromRole="Tickets" ToRole="Airports" />
+    <NavigationProperty Name="Airport1" Relationship="Self.FK_Tickets_Airports1" FromRole="Tickets" ToRole="Airports" />
+  </EntityType>
+  <Association Name="FK_Flights_Airports">
+    <End Role="Airports" Type="Self.Airport" Multiplicity="1" />
+    <End Role="Flights" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airports">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Flights">
+        <PropertyRef Name="To" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Flights_Airports1">
+    <End Role="Airports" Type="Self.Airport" Multiplicity="1" />
+    <End Role="Flights" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airports">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Flights">
+        <PropertyRef Name="From" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tickets_Airports">
+    <End Role="Airports" Type="Self.Airport" Multiplicity="1" />
+    <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airports">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="To" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tickets_Airports1">
+    <End Role="Airports" Type="Self.Airport" Multiplicity="1" />
+    <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airports">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="From" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TicketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Airports" EntityType="Self.Airport" />
+    <EntitySet Name="Flights" EntityType="Self.Flight" />
+    <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+    <AssociationSet Name="FK_Flights_Airports" Association="Self.FK_Flights_Airports">
+      <End Role="Airports" EntitySet="Airports" />
+      <End Role="Flights" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Flights_Airports1" Association="Self.FK_Flights_Airports1">
+      <End Role="Airports" EntitySet="Airports" />
+      <End Role="Flights" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tickets_Airports" Association="Self.FK_Tickets_Airports">
+      <End Role="Airports" EntitySet="Airports" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tickets_Airports1" Association="Self.FK_Tickets_Airports1">
+      <End Role="Airports" EntitySet="Airports" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
